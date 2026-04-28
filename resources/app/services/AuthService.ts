@@ -14,8 +14,15 @@ export default class AuthService extends BaseService {
     }
 
     async getCurrentUser() {
-        await this.get("/sanctum/csrf-cookie");
-        return this.get("/api/users/auth");
+    await this.get("/sanctum/csrf-cookie");
+
+    return this.get("/api/users/auth")
+        .catch(error => {
+            if (error.response?.status === 401) {
+                return null;
+            }
+            throw error;
+        });
     }
 
     async forgotPassword(payload) {

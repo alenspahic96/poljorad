@@ -10,9 +10,9 @@
             <!-- Logo -->
             <div class="text-center mb-8">
                 <div class="w-12 h-12 rounded-xl bg-primary flex items-center justify-center mx-auto mb-3 shadow-lg shadow-primary/20">
-                    <span class="text-primary-content font-bold text-xl">{{ AppConfig.name?.charAt(0) }}</span>
+                    <span class="text-primary-content font-bold text-xl">P</span>
                 </div>
-                <h1 class="text-2xl font-bold text-base-content">{{ AppConfig.name }}</h1>
+                <h1 class="text-2xl font-bold text-base-content">POLJORAD</h1>
             </div>
 
             <!-- Card -->
@@ -23,7 +23,7 @@
             </div>
 
             <!-- Footer -->
-            <p class="text-center text-xs text-base-content/30 mt-6">&copy; {{ new Date().getFullYear() }} {{ AppConfig.name }}. All rights reserved.</p>
+            <p class="text-center text-xs text-base-content/30 mt-6">&copy; {{ new Date().getFullYear() }} POLJORAD. All rights reserved.</p>
         </div>
     </main>
 </template>

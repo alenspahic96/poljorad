@@ -68,9 +68,9 @@
                      :class="sidebarCollapsed ? 'justify-center px-2' : 'px-6'">
                     <router-link class="flex items-center gap-2 hover:opacity-90 transition-opacity" to="/panel/dashboard">
                         <div class="w-8 h-8 rounded-lg bg-primary flex items-center justify-center shrink-0">
-                            <span class="text-primary-content font-bold text-sm">{{ state.app.name?.charAt(0) }}</span>
+                            <span class="text-primary-content font-bold text-sm">P</span>
                         </div>
-                        <span v-if="!sidebarCollapsed" class="text-sidebar-content font-semibold text-base tracking-tight">{{ state.app.name }}</span>
+                        <span v-if="!sidebarCollapsed" class="text-sidebar-content font-semibold text-base tracking-tight">POLJORAD</span>
                     </router-link>
                 </div>
 
@@ -183,8 +183,16 @@ export default {
                     showIfRole: false,
                     onClick: onLogout,
                     to: '',
-                }
-            ],
+                },
+                {
+                    name: "Products",
+                    icon: "box",
+                    showDesktop: true,
+                    showMobile: true,
+                    requiresAbility: false,
+                    to: "/panel/products",
+                },
+                            ],
             headerLeftLink: null,
             footerLeftLink: null,
             isAccountDropdownOpen: false,

@@ -15,7 +15,9 @@ class ApplyLocale
      */
     public function handle(Request $request, Closure $next): Response
     {
-        $locale = $request->header('X-Locale');
+        $locale = $request->header('X-Locale', 'en');
+
+        app()->setLocale($locale);
         if (! empty($locale)) {
             app()->setLocale($locale);
         }

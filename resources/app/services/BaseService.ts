@@ -1,5 +1,7 @@
 import axios from "@/plugins/axios"
 import type {AxiosInstance} from "axios";
+import { useLocaleStore } from "@/stores/locale"
+import type { InternalAxiosRequestConfig, AxiosRequestHeaders } from "axios"
 
 export default abstract class BaseService {
 
@@ -11,6 +13,17 @@ export default abstract class BaseService {
             baseURL: baseURL,
             withCredentials: true,
         });
+        this.api.interceptors.request.use((config: InternalAxiosRequestConfig) => {
+            const localeStore = useLocaleStore()
+
+            if (!config.headers) {
+                config.headers = {} as AxiosRequestHeaders
+            }
+
+            config.headers["X-Locale"] = localeStore.locale
+
+            return config
+        })
         this.api.interceptors.response.use(
             (response) => {
                 return response;

@@ -12,6 +12,7 @@ return [
     */
 
     'users' => [
+    
         'status' => [
             'verified' => 'Verified',
             'not_verified' => 'Not verified',
@@ -50,7 +51,12 @@ return [
     ],
     'global' => [
         'pages' => [
-            'home' => 'Dashboard',
+            "home" => "HOME",
+            "asortiman" => "OUR PRODUCTS",
+            "about" => "ABOUT US",
+            "contact" => "CONTACT",
+            "slogan" => "Simple. Traditional. Delicious.",
+            "motivacija" => "Dairy products and cabbage-based products created through a blend of tradition and modern production.",
             'users' => 'Users',
             'users_create' => 'New User',
             'users_edit' => 'Edit User',
