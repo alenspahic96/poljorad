@@ -238,19 +238,19 @@
       </div>
 
      <div id="milk-products" class="mb-16">
-  <div class="flex items-center gap-4 mb-8">
-    <div class="h-px bg-[#8DC63F] flex-1"></div>
-    <h3 class="serif text-4xl text-[#0F4D2E] font-bold">
-      Proizvodi od mlijeka
-    </h3>
-    <div class="h-px bg-[#8DC63F] flex-1"></div>
-  </div>
+      <div class="flex items-center gap-4 mb-8">
+        <div class="h-px bg-[#8DC63F] flex-1"></div>
+        <h3 class="serif text-4xl text-[#0F4D2E] font-bold">
+          Proizvodi od mlijeka
+        </h3>
+        <div class="h-px bg-[#8DC63F] flex-1"></div>
+    </div>
 
-  <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-7">
+  <div class="flex gap-5 overflow-x-auto snap-x snap-mandatory pb-4 md:grid md:grid-cols-2 xl:grid-cols-4 md:gap-7 md:overflow-visible">
     <article
       v-for="product in milkProducts"
       :key="product.id"
-      class="bg-white shadow-sm overflow-hidden group"
+      class="min-w-[82%] snap-start bg-white shadow-sm overflow-hidden group md:min-w-0"
     >
       <img
         v-if="product.image_url"
@@ -284,40 +284,51 @@
 </div>
 
       <!-- CABBAGE PRODUCTS -->
-      <div id="cabbage-products">
-        <div class="flex items-center gap-4 mb-8">
-          <div class="h-px bg-[#8DC63F] flex-1"></div>
-          <h3 class="serif text-4xl text-[#0F4D2E] font-bold">Proizvodi od kupusa</h3>
-          <div class="h-px bg-[#8DC63F] flex-1"></div>
+        <div id="kupus-products" class="mb-16">
+          <div class="flex items-center gap-4 mb-8">
+            <div class="h-px bg-[#8DC63F] flex-1"></div>
+            <h3 class="serif text-4xl text-[#0F4D2E] font-bold">
+              Proizvodi od kupusa
+            </h3>
+            <div class="h-px bg-[#8DC63F] flex-1"></div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-7">
-          <article class="bg-white shadow-sm overflow-hidden group">
-            <img src="/images/kiseli-kupus.jpg" class="w-full h-72 object-cover group-hover:scale-105 transition duration-500" alt="Kiseli kupus">
+        <div class="flex gap-5 overflow-x-auto snap-x snap-mandatory pb-4 md:grid md:grid-cols-2 xl:grid-cols-3 md:gap-7 md:overflow-visible">
+          
+          <article
+            v-for="product in kupusProducts"
+            :key="product.id"
+            class="min-w-[82%] snap-start bg-white shadow-sm overflow-hidden group md:min-w-0"
+          >
+            <img
+              v-if="product.image_url"
+              :src="product.image_url"
+              class="w-full h-72 object-cover group-hover:scale-105 transition duration-500"
+              :alt="product.name"
+            >
+
+            <div
+              v-else
+              class="w-full h-72 bg-gray-100 flex items-center justify-center text-gray-400"
+            >
+              Nema slike
+            </div>
+
             <div class="p-7">
-              <h4 class="serif text-3xl text-[#0F4D2E] mb-3">Kiseli kupus</h4>
-              <p class="text-gray-600 mb-5">Tradicionalni proizvod za pripremu domaćih jela.</p>
-              <a href="#" class="text-[#0F4D2E] font-bold">Vidi proizvod →</a>
+              <h4 class="serif text-3xl text-[#0F4D2E] mb-3">
+                {{ product.name }}
+              </h4>
+
+              <p class="text-gray-600 mb-5">
+                {{ product.description }}
+              </p>
+
+              <a href="#" class="text-[#0F4D2E] font-bold">
+                Vidi proizvod →
+              </a>
             </div>
           </article>
 
-          <article class="bg-white shadow-sm overflow-hidden group">
-            <img src="/images/ribani-kupus.jpg" class="w-full h-72 object-cover group-hover:scale-105 transition duration-500" alt="Ribani kupus">
-            <div class="p-7">
-              <h4 class="serif text-3xl text-[#0F4D2E] mb-3">Ribani kupus</h4>
-              <p class="text-gray-600 mb-5">Praktično pakovanje za brzu pripremu tradicionalnih jela.</p>
-              <a href="#" class="text-[#0F4D2E] font-bold">Vidi proizvod →</a>
-            </div>
-          </article>
-
-          <article class="bg-white shadow-sm overflow-hidden group">
-            <img src="/images/list-kupusa.jpg" class="w-full h-72 object-cover group-hover:scale-105 transition duration-500" alt="List kupusa">
-            <div class="p-7">
-              <h4 class="serif text-3xl text-[#0F4D2E] mb-3">List kupusa</h4>
-              <p class="text-gray-600 mb-5">Spreman za pripremu sarme i domaćih specijaliteta.</p>
-              <a href="#" class="text-[#0F4D2E] font-bold">Vidi proizvod →</a>
-            </div>
-          </article>
         </div>
       </div>
     </div>
@@ -516,6 +527,11 @@ const loadProducts = async () => {
 const milkProducts = computed(() =>
   products.value.filter((p) => p.category?.slug === "mlijecni")
 )
+
+const kupusProducts = computed(() =>
+  products.value.filter((p) => p.category?.slug === "kupus")
+)
+
 
 onMounted(loadProducts)
 </script>
