@@ -10,7 +10,7 @@
       </div>
 
       <div class="absolute left-1/2 -translate-x-1/2 top-8" data-aos="zoom-in" data-aos-delay="300">
-        <img src="/images/logo_poljorad.png" alt="Poljorad logo" class="w-64 object-contain">
+        <img src="/images/logo_poljorad.png" alt="Poljorad logo" class="w-44 sm:w-56 lg:w-64 object-contain">
       </div>
 
       <div class="hidden lg:flex flex-1 justify-start pl-40 gap-12 text-white font-medium">
@@ -133,10 +133,10 @@
     </div>
   </nav>
 
-  <div class="relative z-10 max-w-7xl mx-auto min-h-screen px-6 flex items-center pt-28">
+  <div class="relative z-10 max-w-7xl mx-auto min-h-screen px-6 flex items-center pt-36 pb-16">
     <div class="max-w-2xl text-white">
       <h1
-        class="serif text-5xl lg:text-7xl leading-[.95] font-bold mb-8"
+        class="serif text-4xl sm:text-5xl lg:text-7xl leading-[1.02] font-bold mb-6 lg:mb-8"
         data-aos="fade-up"
         data-aos-delay="350"
       >
@@ -144,7 +144,7 @@
       </h1>
 
       <p
-        class="text-xl text-white/85 max-w-xl mb-10"
+        class="text-lg sm:text-xl text-white/90 max-w-xl mb-8 lg:mb-10"
         data-aos="fade-up"
         data-aos-delay="500"
       >
@@ -522,19 +522,37 @@ onMounted(loadProducts)
 
 <style lang="scss" scoped>
 
-.hero {
+.hero-bg {
   position: relative;
-  background: linear-gradient(130deg, rgba(15, 77, 46, .82) 0%, rgba(15, 77, 46, .42) 42%, rgba(15, 77, 46, .08) 103%), linear-gradient(0deg, rgba(35, 35, 35, .82) 0%, rgba(35, 35, 35, 0) 33%), url(/images/poljorad_hero.png);
+  background:
+    linear-gradient(130deg, rgba(15, 77, 46, .82) 0%, rgba(15, 77, 46, .42) 85%, rgba(15, 77, 46, .08) 103%),
+    linear-gradient(0deg, rgba(35, 35, 35, .82) 0%, rgba(35, 35, 35, 0) 33%),
+    url('/images/poljorad_hero.png');
   background-position: center;
+  background-size: cover;
 }
 
-/* POSVJETLJAVANJE SKETCHA */
-.hero::after {
+.hero-bg::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(255, 255, 255, 0.35); /* ovo smanjuje kontrast linija */
+  background: rgba(255, 255, 255, 0.22);
   pointer-events: none;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .hero-bg {
+    background:
+      linear-gradient(180deg, rgba(15, 77, 46, .82) 0%, rgba(15, 77, 46, .76) 45%, rgba(0, 0, 0, .70) 100%),
+      url('/images/poljorad_hero.png');
+    background-position: center top;
+    background-size: cover;
+  }
+
+  .hero-bg::after {
+    background: rgba(0, 0, 0, 0.18);
+  }
 }
 .nav-link {
   @apply inline-flex items-center px-6 py-2 text-white transition hover:bg-white/80 hover:text-black;

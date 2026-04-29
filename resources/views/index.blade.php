@@ -34,7 +34,7 @@
     <script>
         window.AppConfig = {
             name: '{{ env('APP_NAME') }}',
-            logo: '{{ url('/assets/images/logo.png') }}',
+            logo: '/assets/images/logo.png',
             url: '{{ env('APP_URL') }}',
             csrf: '{{ csrf_token() }}',
             defaultLocale: '{{ env('APP_LOCALE', 'en') }}',
