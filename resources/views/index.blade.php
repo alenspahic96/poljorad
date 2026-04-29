@@ -18,17 +18,17 @@
     <meta property="og:title" content="Poljorad d.o.o. Turbe-Travnik | Okus tradicije iz srca Vlašića">
     <meta property="og:description" content="Mliječni proizvodi i proizvodi od kupusa nastali spojem tradicije, domaće recepture i savremene kontrole kvaliteta.">
     <meta property="og:url" content="{{ env('APP_URL') }}">
-    <meta property="og:image" content="{{ url('/images/og-poljorad.jpg') }}">
+    <meta property="og:image" content="/images/og-poljorad.jpg">
     <meta property="og:site_name" content="Poljorad">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Poljorad d.o.o. Turbe-Travnik">
     <meta name="twitter:description" content="Domaći mliječni proizvodi i kupus asortiman iz Turbeta kod Travnika.">
-    <meta name="twitter:image" content="{{ url('/images/og-poljorad.jpg') }}">
-    <link rel="icon" href="{{ asset('favicon_set/favicon.ico') }}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('favicon_set/favicon-32x32.png') }}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('favicon_set/favicon-16x16.png') }}">
-    <link rel="apple-touch-icon" href="{{ asset('favicon_set/apple-touch-icon.png') }}">
+    <meta name="twitter:image" content="/images/og-poljorad.jpg">
+    <link rel="icon" href="/favicon_set/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon_set/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon_set/favicon-16x16.png">
+    <link rel="apple-touch-icon" href="/favicon_set/apple-touch-icon.png">
     @vite(['resources/styles/main.css', 'resources/app/main.js'])
 
     <script>
