@@ -1,7 +1,6 @@
 <template>
   <section class="bg-[#F7F1E8] min-h-screen">
     <div class="bg-[#0F4D2E] text-white overflow-hidden">
-      <div class="absolute inset-0 opacity-15 bg-[url('/images/poljorad_hero.png')] bg-cover bg-center"></div>
 
       <nav class="absolute top-0 left-0 w-full z-30">
     <div class="relative max-w-7xl mx-auto h-28 px-6 flex items-center justify-between">
