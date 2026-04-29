@@ -1,6 +1,6 @@
 <template>
   <section class="bg-[#F7F1E8] min-h-screen">
-    <div class="relative bg-[#0F4D2E] text-white overflow-hidden">
+    <div class="bg-[#0F4D2E] text-white overflow-hidden">
       <div class="absolute inset-0 opacity-15 bg-[url('/images/poljorad_hero.png')] bg-cover bg-center"></div>
 
       <nav class="absolute top-0 left-0 w-full z-30">
@@ -15,7 +15,7 @@
           </RouterLink>
           <RouterLink
             to="/asortiman?category"
-            class="inline-block w-fit bg-white text-[#0F4D2E] px-7 py-3 font-bold"
+            class="hover:text-[#8DC63F] transition"
           >
             {{ $t('global.pages.asortiman') }}
           </RouterLink>
@@ -78,86 +78,103 @@
       </button>
     </div>
 
-    <!-- Mobile dropdown -->
-    <div
-      v-if="isMenuOpen"
-      class="lg:hidden absolute top-28 left-0 w-full z-40 px-6"
-      data-aos="fade-down"
+   <!-- Mobile dropdown -->
+<div
+  v-if="isMenuOpen"
+  class="lg:hidden absolute top-28 left-0 w-full z-40 px-6"
+>
+  <div class="rounded-2xl bg-white p-4 shadow-2xl">
+
+    <RouterLink
+      to="/"
+      @click="isMenuOpen = false"
+      class="block rounded-xl px-4 py-3 text-gray-800 hover:bg-gray-100"
     >
-      <div class="rounded-2xl bg-white p-4 shadow-2xl">
-        <a href="#home" @click="isMenuOpen = false" class="block rounded-xl px-4 py-3 text-gray-800 hover:bg-gray-100">
-          {{ $t('global.pages.home') }}
-        </a>
+      {{ $t('global.pages.home') }}
+    </RouterLink>
 
-        <a href="#products" @click="isMenuOpen = false" class="block rounded-xl px-4 py-3 text-gray-800 hover:bg-gray-100">
-          {{ $t('global.pages.asortiman') }}
-        </a>
+    <RouterLink
+      to="/asortiman"
+      @click="isMenuOpen = false"
+      class="block rounded-xl px-4 py-3 text-gray-800 hover:bg-gray-100"
+    >
+      {{ $t('global.pages.asortiman') }}
+    </RouterLink>
 
-        <a href="#about" @click="isMenuOpen = false" class="block rounded-xl px-4 py-3 text-gray-800 hover:bg-gray-100">
-         {{ $t('global.pages.about') }}
-        </a>
+    <RouterLink
+      to="/#about"
+      @click="isMenuOpen = false"
+      class="block rounded-xl px-4 py-3 text-gray-800 hover:bg-gray-100"
+    >
+      {{ $t('global.pages.about') }}
+    </RouterLink>
 
-        <a href="#contact" @click="isMenuOpen = false" class="block rounded-xl px-4 py-3 text-gray-800 hover:bg-gray-100">
-          {{ $t('global.pages.contact') }}
-        </a>
+    <RouterLink
+      to="/#contact"
+      @click="isMenuOpen = false"
+      class="block rounded-xl px-4 py-3 text-gray-800 hover:bg-gray-100"
+    >
+      {{ $t('global.pages.contact') }}
+    </RouterLink>
 
-        <!-- Mobile jezici -->
-        <div class="mt-4 border-t pt-4 lang-dropdown">
-          <button
-            type="button"
-            class="flex w-full items-center justify-between rounded-xl px-4 py-3 text-sm font-medium text-gray-800 hover:bg-gray-100"
-            @click.stop="isLangOpen = !isLangOpen"
-          >
-            <span class="flex items-center gap-2">
-              <span :class="flagClass"></span>
-              {{ currentLocale.toUpperCase() }}
-            </span>
+    <!-- Mobile jezici -->
+    <div class="mt-4 border-t pt-4 lang-dropdown">
+      <button
+        type="button"
+        class="flex w-full items-center justify-between rounded-xl px-4 py-3 text-sm font-medium text-gray-800 hover:bg-gray-100"
+        @click.stop="isLangOpen = !isLangOpen"
+      >
+        <span class="flex items-center gap-2">
+          <span :class="flagClass"></span>
+          {{ currentLocale.toUpperCase() }}
+        </span>
 
-            <span><svg class="w-4 h-4 opacity-60" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <path d="M19 9l-7 7-7-7"/>
-            </svg></span>
-          </button>
+        <span>
+          <svg class="w-4 h-4 opacity-60" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M19 9l-7 7-7-7"/>
+          </svg>
+        </span>
+      </button>
 
-          <div
-            v-if="isLangOpen"
-            class="mt-2 flex w-full flex-col overflow-hidden rounded-xl bg-gray-100"
-          >
-            <button
-              type="button"
-              class="flex w-full items-center gap-2 px-4 py-3 text-left text-sm text-gray-800 hover:bg-gray-200"
-              @click.stop="setLocale('en'); isLangOpen = false; isMenuOpen = false"
-            >
-              <span class="fi fi-gb"></span>
-              EN
-            </button>
+      <div
+        v-if="isLangOpen"
+        class="mt-2 flex w-full flex-col overflow-hidden rounded-xl bg-gray-100"
+      >
+        <button
+          type="button"
+          class="flex w-full items-center gap-2 px-4 py-3 text-left text-sm text-gray-800 hover:bg-gray-200"
+          @click.stop="setLocale('en'); isLangOpen = false; isMenuOpen = false"
+        >
+          <span class="fi fi-gb"></span>
+          EN
+        </button>
 
-            <button
-              type="button"
-              class="flex w-full items-center gap-2 px-4 py-3 text-left text-sm text-gray-800 hover:bg-gray-200"
-              @click.stop="setLocale('bs'); isLangOpen = false; isMenuOpen = false"
-            >
-              <span class="fi fi-ba"></span>
-              BS
-            </button>
-          </div>
-        </div>
+        <button
+          type="button"
+          class="flex w-full items-center gap-2 px-4 py-3 text-left text-sm text-gray-800 hover:bg-gray-200"
+          @click.stop="setLocale('bs'); isLangOpen = false; isMenuOpen = false"
+        >
+          <span class="fi fi-ba"></span>
+          BS
+        </button>
       </div>
     </div>
+  </div>
+</div>
   </nav>
 
-      <div class="relative max-w-7xl mx-auto px-6 pt-20 pb-28 md:pt-48 md:pb-8">
+      <div class="relative max-w-7xl mx-auto px-6 pt-33 pb-6 md:pb-28 md:pt-48 md:pb-8">
 
-        <h1 class="serif text-5xl md:text-7xl font-bold mb-6">
+        <h1 class="serif text-3xl md:text-6xl font-bold mb-6">
           {{ pageTitle }}
         </h1>
 
-        <p class="max-w-2xl text-white/80 text-lg">
+        <p class="max-w-2xl text-white/80 text-1xl md:text-2xl">
           Pregled domaćih proizvoda nastalih spojem tradicije, prirode i savremene proizvodnje.
         </p>
       </div>
     </div>
-
-    <div class="max-w-7xl mx-auto px-6 py-14">
+    <div  class="max-w-7xl mx-auto px-6 py-14">
       <div class="flex flex-wrap items-center justify-between gap-4 mb-10">
         <div class="flex gap-3 flex-wrap">
           <RouterLink
@@ -193,6 +210,7 @@
       <div
         v-if="filteredProducts.length"
         class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-7"
+        
       >
         <article
           v-for="product in filteredProducts"
@@ -252,6 +270,72 @@
       </div>
     </div>
   </section>
+   <!-- ABOUT PAGE / SECTION -->
+  <section id="about" class="py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div class="relative">
+        <div class="absolute -left-6 -top-6 w-32 h-32 bg-[#8DC63F]/20"></div>
+        <img src="/images/poljorad_hero.jpg" class="relative w-full h-[560px] object-cover shadow-xl" alt="Farma">
+      </div>
+
+      <div>
+        <p class="uppercase tracking-[.3em] text-sm text-[#8DC63F] font-bold mb-4">O nama</p>
+        <h2 class="serif text-5xl lg:text-6xl text-[#0F4D2E] leading-tight font-bold mb-8">
+          Tradicija, priroda i odgovorna proizvodnja.
+        </h2>
+        <p class="text-lg text-gray-600 mb-5">
+          Poljorad je kompanija iz Turbeta koja njeguje tradiciju proizvodnje mliječnih proizvoda i povjerenje domaćih proizvođača mlijeka.
+        </p>
+        <p class="text-lg text-gray-600 mb-8">
+          Naši proizvodi nastaju iz pažljivo odabranog mlijeka, uz spoj tradicionalnih receptura i savremene kontrole kvaliteta.
+        </p>
+        <a href="#contact" class="inline-block bg-[#0F4D2E] text-white px-8 py-4 font-semibold hover:bg-[#8DC63F] transition">Kontaktirajte nas</a>
+      </div>
+    </div>
+  </section>
+
+   <!-- CONTACT PAGE / SECTION -->
+  <section id="contact" class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-14">
+      <div>
+        <p class="uppercase tracking-[.3em] text-sm text-[#8DC63F] font-bold mb-4">Kontakt</p>
+        <h2 class="serif text-5xl lg:text-6xl text-[#0F4D2E] font-bold mb-8">Kontaktirajte nas</h2>
+        <p class="text-lg text-gray-600 mb-8">
+          Za informacije o proizvodima, saradnji i otkupu mlijeka, pošaljite upit ili nas kontaktirajte direktno.
+        </p>
+
+        <div class="space-y-5 text-gray-700">
+          <div>
+            <p class="font-bold text-[#0F4D2E]">Lokacija</p>
+            <p>Turbe, Travnik, Bosna i Hercegovina</p>
+          </div>
+          <div>
+            <p class="font-bold text-[#0F4D2E]">Telefon</p>
+            <p>+387 XX XXX XXX</p>
+          </div>
+          <div>
+            <p class="font-bold text-[#0F4D2E]">E-mail</p>
+            <p>info@poljorad.ba</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+<!-- FOOTER -->
+  <footer class="bg-[#0F4D2E] text-white py-10">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+      <img src="/images/logo_poljorad.png" class="w-40" alt="Poljorad">
+      <p class="text-white/70">© 2026 Poljorad. Sva prava zadržana.</p>
+      <div class="flex gap-6 text-white/80">
+        <a href="#home">Početna</a>
+        <a href="#products">Proizvodi</a>
+        <a href="#about">O nama</a>
+        <a href="#contact">Kontakt</a>
+      </div>
+    </div>
+  </footer>
 </template>
 
 <script setup>

@@ -221,6 +221,8 @@
             <RouterLink
                 to="/asortiman?category=mlijecni"
                 class="inline-block w-fit bg-[#8DC63F] text-[#0F4D2E] px-7 py-3 font-bold"
+
+
               >
                 Vidi sve proizvode
               </RouterLink>
@@ -324,15 +326,6 @@
         </div>
       </div>
 
-      <form class="bg-[#F8FAF4] p-8 shadow-sm">
-        <div class="grid grid-cols-1 gap-5">
-          <input class="p-4 bg-white border border-[#E4EAD8]" placeholder="Ime i prezime">
-          <input class="p-4 bg-white border border-[#E4EAD8]" placeholder="E-mail">
-          <input class="p-4 bg-white border border-[#E4EAD8]" placeholder="Naslov poruke">
-          <textarea class="p-4 bg-white border border-[#E4EAD8] h-36" placeholder="Poruka"></textarea>
-          <button class="bg-[#0F4D2E] text-white p-4 font-bold hover:bg-[#8DC63F] transition">Pošalji poruku</button>
-        </div>
-      </form>
     </div>
   </section>
 
