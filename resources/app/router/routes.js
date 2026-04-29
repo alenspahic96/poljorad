@@ -10,7 +10,7 @@ import {default as PageProfile} from "@/views/pages/private/profile/Main";
 import {default as PageUsers} from "@/views/pages/private/users/Index";
 import {default as PageComponents} from "@/views/pages/private/components/Main";
 import { default as PageHome } from "@/views/pages/public/home";
-import Asortiman from "@/views/pages/public/Asortiman.vue";
+import Asortiman from "@/views/pages/public/asortiman.vue";
 import Contact from "@/views/pages/public/contact.vue";
 import About from "@/views/pages/public/about.vue";
 
@@ -84,19 +84,19 @@ const routes = [
                     {
                         name: "products.list",
                         path: "",
-                        component: () => import("@/views/pages/private/products/Index.vue"),
+                        component: () => import("@/views/pages/private/products/index.vue"),
                         meta: { requiresAuth: true },
                     },
                     {
                         name: "products.create",
                         path: "create",
-                        component: () => import("@/views/pages/private/products/Create.vue"),
+                        component: () => import("@/views/pages/private/products/create.vue"),
                         meta: { requiresAuth: true },
                     },
                     {
                         name: "products.edit",
                         path: ":id/edit",
-                        component: () => import("@/views/pages/private/products/Edit.vue"),
+                        component: () => import("@/views/pages/private/products/edit.vue"),
                         meta: { requiresAuth: true },
                     },
                 ]
