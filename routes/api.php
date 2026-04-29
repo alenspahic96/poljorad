@@ -23,6 +23,7 @@ Route::post('/sanctum/token', TokenController::class);
 Route::get('/products', [ProductController::class, 'index']);
 Route::get('/products/{product}', [ProductController::class, 'show']);
 Route::get('/categories', [CategoryController::class, 'index']);
+Route::get('/products/{product}', [ProductController::class, 'show']);
 
 Route::middleware(['auth:sanctum', 'apply_locale'])->group(function () {
     Route::post('/products', [ProductController::class, 'store']);

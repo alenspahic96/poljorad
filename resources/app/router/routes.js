@@ -11,6 +11,7 @@ import {default as PageUsers} from "@/views/pages/private/users/Index";
 import {default as PageComponents} from "@/views/pages/private/components/Main";
 import { default as PageHome } from "@/views/pages/public/home";
 import Asortiman from "@/views/pages/public/asortiman.vue";
+import ProducShow from "@/views/pages/public/ProductShow.vue";
 import Contact from "@/views/pages/public/contact.vue";
 import About from "@/views/pages/public/about.vue";
 
@@ -44,6 +45,11 @@ const routes = [
         path: "/about",
         name: "about",
         component: () => import("@/views/pages/public/about.vue"),
+    },
+    {
+        path: "/proizvod/:id",
+        name: "product.show",
+        component: () => import("@/views/pages/public/ProductShow.vue"),
     },
     {
         name: "panel",

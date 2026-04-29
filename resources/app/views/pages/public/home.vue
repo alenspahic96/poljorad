@@ -5,6 +5,7 @@
     <div class="relative max-w-7xl mx-auto h-28 px-6 flex items-center justify-between">
 
       <div class="hidden lg:flex flex-1 justify-end pr-40 gap-12 text-white font-medium">
+        
         <a href="#home" data-aos="fade-down" data-aos-delay="100" class="hover:text-[#8DC63F] transition"> {{ $t('global.pages.home') }}</a>
         <a href="#products" data-aos="fade-down" data-aos-delay="200" class="hover:text-[#8DC63F] transition">{{ $t('global.pages.asortiman') }}</a>
       </div>
@@ -181,7 +182,8 @@
       </div>
     </div>
   </section>
-   <<section class="soft-vlasic py-28">
+
+   <section class="soft-vlasic py-28">
       <div class="max-w-7xl mx-auto px-6 text-white flex justify-center">
         <div class="max-w-2xl text-center">
           <h2 class="serif text-5xl lg:text-6xl font-bold mb-6">
@@ -192,12 +194,6 @@
             Inspirisani Vlašićem, stvaramo proizvode koji spajaju domaću recepturu i savremeni kvalitet.
           </p>
 
-          <a
-            href="#products"
-            class="inline-block bg-white text-[#0F4D2E] px-8 py-4 font-bold"
-          >
-            Istraži proizvode
-          </a>
         </div>
       </div>
     </section>
@@ -217,12 +213,17 @@
       <!-- CATEGORY CARDS -->
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-14">
         <article class="relative min-h-[420px] overflow-hidden group bg-[#0F4D2E]">
-          <img src="/images/vlasickisir.jpg" class="absolute inset-0 w-full h-full object-contain opacity-70 group-hover:scale-105 transition duration-700" alt="Proizvodi od mlijeka">
+          <img src="/images/vlasickisir.jpg" class="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:scale-105 transition duration-700" alt="Proizvodi od mlijeka">
           <div class="absolute inset-0 bg-gradient-to-t from-[#0F4D2E] via-[#0F4D2E]/45 to-transparent"></div>
           <div class="relative z-10 h-full p-10 flex flex-col justify-end text-white">
             <h3 class="serif text-5xl font-bold mb-4">Proizvodi od mlijeka</h3>
             <p class="text-white/80 text-lg max-w-md mb-6">Sir, kajmak i drugi mliječni proizvodi nastali iz domaćeg mlijeka i tradicije Vlašića.</p>
-            <a href="#milk-products" class="inline-block w-fit bg-[#8DC63F] text-[#0F4D2E] px-7 py-3 font-bold">Pogledaj proizvode</a>
+            <RouterLink
+                to="/asortiman?category=mlijecni"
+                class="inline-block w-fit bg-[#8DC63F] text-[#0F4D2E] px-7 py-3 font-bold"
+              >
+                Vidi sve proizvode
+              </RouterLink>
           </div>
         </article>
 
@@ -232,104 +233,14 @@
           <div class="relative z-10 h-full p-10 flex flex-col justify-end text-white">
             <h3 class="serif text-5xl font-bold mb-4">Proizvodi od kupusa</h3>
             <p class="text-white/80 text-lg max-w-md mb-6">Tradicionalni proizvodi od kupusa pripremljeni za domaću kuhinju i porodičnu trpezu.</p>
-            <a href="#cabbage-products" class="inline-block w-fit bg-white text-[#0F4D2E] px-7 py-3 font-bold">Pogledaj proizvode</a>
+             <RouterLink
+                to="/asortiman?category=kupus"
+                class="inline-block w-fit bg-white text-[#0F4D2E] px-7 py-3 font-bold"
+              >
+                Vidi sve proizvode
+              </RouterLink>
           </div>
         </article>
-      </div>
-
-     <div id="milk-products" class="mb-16">
-      <div class="flex items-center gap-4 mb-8">
-        <div class="h-px bg-[#8DC63F] flex-1"></div>
-        <h3 class="serif text-4xl text-[#0F4D2E] font-bold">
-          Proizvodi od mlijeka
-        </h3>
-        <div class="h-px bg-[#8DC63F] flex-1"></div>
-    </div>
-
-  <div class="flex gap-5 overflow-x-auto snap-x snap-mandatory pb-4 md:grid md:grid-cols-2 xl:grid-cols-4 md:gap-7 md:overflow-visible">
-    <article
-      v-for="product in milkProducts"
-      :key="product.id"
-      class="min-w-[82%] snap-start bg-white shadow-sm overflow-hidden group md:min-w-0"
-    >
-      <img
-        v-if="product.image_url"
-        :src="product.image_url"
-        class="w-full h-72 object-cover group-hover:scale-105 transition duration-500"
-        :alt="product.name"
-      >
-
-      <div
-        v-else
-        class="w-full h-72 bg-gray-100 flex items-center justify-center text-gray-400"
-      >
-        Nema slike
-      </div>
-
-      <div class="p-7">
-        <h4 class="serif text-3xl text-[#0F4D2E] mb-3">
-          {{ product.name }}
-        </h4>
-
-        <p class="text-gray-600 mb-5">
-          {{ product.description }}
-        </p>
-
-        <a href="#" class="text-[#0F4D2E] font-bold">
-          Vidi proizvod →
-        </a>
-      </div>
-    </article>
-  </div>
-</div>
-
-      <!-- CABBAGE PRODUCTS -->
-        <div id="kupus-products" class="mb-16">
-          <div class="flex items-center gap-4 mb-8">
-            <div class="h-px bg-[#8DC63F] flex-1"></div>
-            <h3 class="serif text-4xl text-[#0F4D2E] font-bold">
-              Proizvodi od kupusa
-            </h3>
-            <div class="h-px bg-[#8DC63F] flex-1"></div>
-        </div>
-
-        <div class="flex gap-5 overflow-x-auto snap-x snap-mandatory pb-4 md:grid md:grid-cols-2 xl:grid-cols-3 md:gap-7 md:overflow-visible">
-          
-          <article
-            v-for="product in kupusProducts"
-            :key="product.id"
-            class="min-w-[82%] snap-start bg-white shadow-sm overflow-hidden group md:min-w-0"
-          >
-            <img
-              v-if="product.image_url"
-              :src="product.image_url"
-              class="w-full h-72 object-cover group-hover:scale-105 transition duration-500"
-              :alt="product.name"
-            >
-
-            <div
-              v-else
-              class="w-full h-72 bg-gray-100 flex items-center justify-center text-gray-400"
-            >
-              Nema slike
-            </div>
-
-            <div class="p-7">
-              <h4 class="serif text-3xl text-[#0F4D2E] mb-3">
-                {{ product.name }}
-              </h4>
-
-              <p class="text-gray-600 mb-5">
-                {{ product.description }}
-              </p>
-
-              <a href="#" class="text-[#0F4D2E] font-bold">
-                Vidi proizvod →
-              </a>
-            </div>
-          </article>
-
-        </div>
       </div>
     </div>
   </section>
